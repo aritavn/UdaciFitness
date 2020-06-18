@@ -13,6 +13,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Constants from 'expo-constants'
 import EntryDetail from './components/EntryDetail'
 import { createStackNavigator } from '@react-navigation/stack'
+import Live from './components/Live'
 
 const Tabs = Platform.OS === 'ios' ? createBottomTabNavigator() : createMaterialTopTabNavigator()
 
@@ -29,6 +30,13 @@ const TabsConfigs = {
     name: 'Add Entry',
     options: {
       tabBarIcon: ({tintColor}) => <FontAwesome name='plus-square' size={30} color={tintColor} />
+    }
+  },
+  Live: {
+    component: Live,
+    name: 'Live',
+    options: {
+      tabBarIcon: ({tintColor}) => <Ionicons name='ios-speedometer' size={30} color={tintColor} />
     }
   }
 }
@@ -57,6 +65,7 @@ const TabNav = () => (
   <Tabs.Navigator {...TabNavigatorConfigs} >
     <Tabs.Screen {...TabsConfigs['History']} />
     <Tabs.Screen {...TabsConfigs['AddEntry']} />
+    <Tabs.Screen {...TabsConfigs['Live']} />
   </Tabs.Navigator>
 )
 
