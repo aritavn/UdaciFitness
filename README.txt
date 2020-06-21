@@ -1,2 +1,0 @@
-
-UdaciFitness React Native App
